@@ -5,8 +5,10 @@ var Adventurers: Array[Adventurer]
 var Building
  
 var Treasury = 0
+var Mater = 0
 
 @onready var TresGold := $CanvasLayer/Treasury as Label
+@onready var MatAmount := $CanvasLayer/Materials as Label
 
 const MAX_CHARACTER_LIMIT = 30
 
@@ -17,7 +19,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	TresGold.text = "Kingdom Gold : " + str(Treasury)
-
+	MatAmount.position = Vector2(TresGold.position.x, TresGold.position.y + 25)
+	MatAmount.text = "Materials : " + str(Mater)
 
 func _input(event):
 	if event.is_action_released("Fullscreen"):
@@ -43,11 +46,3 @@ func _on_building_button_pressed():
 	var inst = Building.instantiate()
 	inst.position = Vector2(300, 225)
 	get_tree().root.add_child(inst)
-	
-	#place_building(inst)
-	
-	
-	
-#func place_building(Building):
-	#if 
-		#Building.position = get_global_mouse_position()

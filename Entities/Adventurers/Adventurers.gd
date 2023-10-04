@@ -10,6 +10,8 @@ var Exhaustion = 0
 var Class = Classes.FLEDGELING
 var Gold = 0
 
+var ActiveQuest : Quest = null
+
 enum Classes {FLEDGELING, WARRIOR, MAGE, CLERIC, ROGUE, RANGER}
 
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D

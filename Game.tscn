@@ -422,6 +422,10 @@ script = ExtResource("1_55iix")
 offset_right = 40.0
 offset_bottom = 23.0
 
+[node name="Materials" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+
 [node name="QuitButton" type="Button" parent="CanvasLayer" groups=["Buttons"]]
 z_index = 1
 offset_left = 1792.0

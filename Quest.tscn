@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://c80yystm84hkg"]
+[gd_scene load_steps=2 format=3 uid="uid://c80yystm84hkg"]
+
+[ext_resource type="Script" path="res://Quest.gd" id="1_dmog8"]
 
 [node name="Quest" type="Node2D"]
+script = ExtResource("1_dmog8")

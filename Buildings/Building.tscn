@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://78sunbtrvqdc" path="res://Buildings/desert_house_exterior_01.png" id="1_63yau"]
 [ext_resource type="Script" path="res://Buildings/Building.gd" id="1_nhlsw"]
-[ext_resource type="Texture2D" uid="uid://dywis8dyo7yca" path="res://DesertHouse.tres" id="3_okh8e"]
+[ext_resource type="Texture2D" uid="uid://dywis8dyo7yca" path="res://Buildings/DesertHouse.tres" id="3_5i3g6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ojaai"]
 texture = ExtResource("1_63yau")
@@ -2774,7 +2774,7 @@ texture = ExtResource("1_63yau")
 31:31/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ko07u"]
-texture = ExtResource("3_okh8e")
+texture = ExtResource("3_5i3g6")
 22:0/0 = 0
 22:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 22:0/0/physics_layer_0/angular_velocity = 0.0
@@ -5489,7 +5489,7 @@ custom_data_layer_0/type = 0
 sources/0 = SubResource("TileSetAtlasSource_ojaai")
 sources/1 = SubResource("TileSetAtlasSource_ko07u")
 
-[node name="Building" type="Node2D"]
+[node name="House" type="Node2D"]
 script = ExtResource("1_nhlsw")
 
 [node name="TileMap" type="TileMap" parent="."]

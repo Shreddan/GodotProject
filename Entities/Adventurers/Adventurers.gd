@@ -1,18 +1,14 @@
-class_name Adventurer extends CharacterBody2D
+class_name Adventurer 
+extends CharacterBody2D
 
 
 @export var speed = 200
 var happiness = 100
-var Level = 1
-var Experience = 0
-@export var ExpThreshold = Experience * Level + 1.3
-var Exhaustion = 0
-var Class = Classes.FLEDGELING
+
 var Gold = 0
 
-var ActiveQuest : Quest = null
 
-enum Classes {FLEDGELING, WARRIOR, MAGE, CLERIC, ROGUE, RANGER}
+
 
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 @onready var anim := $AnimatedSprite2D as AnimatedSprite2D
@@ -21,14 +17,12 @@ var random
 
 signal quest_started
 signal quest_completed
-signal health_depleted
 
-
-func _ready():
+func _on_ready():
 	random = RandomNumberGenerator.new()
 	random.randomize()
 	position = to_local(Vector2(10, 10))
-	set_self_modulate(Color(Color.BROWN))
+	set_modulate(Color(randi_range(20, 230), randi_range(20, 230), randi_range(20, 230), 200))
 
 func _process(_delta):
 	makepath()
@@ -59,9 +53,4 @@ func makepath() -> void:
 	if Input.is_action_just_released("RightClick"):
 		nav_agent.target_position = get_global_mouse_position()
 		
-func levelup() -> void:
-	Level += 1
-	
-func checkExp() -> void:
-	if Experience >= ExpThreshold:
-		levelup()
+

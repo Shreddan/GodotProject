@@ -1,8 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://bg3ivdmdrhsul"]
+[gd_scene load_steps=26 format=3 uid="uid://bg3ivdmdrhsul"]
 
 [ext_resource type="Script" path="res://Entities/Adventurers/Adventurers.gd" id="1_vrs3y"]
 [ext_resource type="Texture2D" uid="uid://c80wymma7j74s" path="res://Entities/Adventurers/KenatronIdleRight.png" id="2_jn8sn"]
 [ext_resource type="Texture2D" uid="uid://d0ewdonegw0lx" path="res://Entities/Adventurers/Kenatron.png" id="3_ykv2k"]
+[ext_resource type="Script" path="res://Entities/Health_CPT.gd" id="4_it6mu"]
+[ext_resource type="Script" path="res://Entities/Combat.gd" id="5_7do4u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vet6i"]
 size = Vector2(14.5, 14)
@@ -176,3 +178,11 @@ libraries = {
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 5.0
+
+[node name="HealthCPT" type="Node" parent="."]
+script = ExtResource("4_it6mu")
+
+[node name="Combat" type="Node" parent="."]
+script = ExtResource("5_7do4u")
+
+[connection signal="ready" from="." to="." method="_on_ready"]

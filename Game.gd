@@ -1,7 +1,7 @@
 extends Node2D
 
 var Adventurer
-var Adventurers: Array[Adventurer]
+
 var Building
  
 var Treasury = 0
@@ -28,10 +28,11 @@ func _input(event):
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-		
-	if event.is_action_released("ui_select"):
+	elif event.is_action_released("ui_select"):
 		var inst = Adventurer.instantiate()
 		add_child(inst)
+	elif event.is_action_pressed("Escape"):
+		get_tree().change_scene_to_file("res://MainMenu.tscn")
 
 func _on_button_pressed():
 	get_tree().change_scene_to_file("res://Map.tscn")

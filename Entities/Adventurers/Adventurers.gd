@@ -1,34 +1,29 @@
-class_name Adventurer 
 extends CharacterBody2D
 
-
 @export var speed = 200
-var happiness = 100
-
-var Gold = 0
-
-
-
+@export var inventory: Inventory
+@export var Adventure: Adventurer
+@export var House: Building 
 
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 @onready var anim := $AnimatedSprite2D as AnimatedSprite2D
 
 var random
 
-signal quest_started
-signal quest_completed
-
 func _on_ready():
-	random = RandomNumberGenerator.new()
-	random.randomize()
-	position = to_local(Vector2(10, 10))
-	set_modulate(Color(randi_range(20, 230), randi_range(20, 230), randi_range(20, 230), 200))
+	pass
+	#House = get_parent()
+	#print_debug(House)
+	position = to_local(House.position)
+	
+	
 
 func _process(_delta):
-	makepath()
-	var dir = to_local(nav_agent.get_next_path_position())
-	
-	
+	Adventure.checkExp()
+
+func _physics_process(_delta: float):
+	var dir = to_local(nav_agent.get_next_path_position()).normalized()
+	velocity = dir * speed
 	if dir.x > 0 :
 		anim.flip_h = false
 		anim.play("WalkRight")
@@ -37,20 +32,17 @@ func _process(_delta):
 		anim.play("WalkRight")
 	else:
 		anim.play("IdleDown")
-	#elif dir > 0:
-	#	anim.play("WalkUp")
-	#elif dir < 0:
-	#	anim.play("WalkDown")
-	
-	
-func _physics_process(_delta: float) -> void:
-	var dir = to_local(nav_agent.get_next_path_position()).normalized()
-	velocity = dir * speed
+	#if nav_agent.distance_to_target() > 5:
 	move_and_slide()
 
+func _input(event):
+	if event.is_action_released("RightClick"):
+		makepath(get_global_mouse_position())
 
-func makepath() -> void:
-	if Input.is_action_just_released("RightClick"):
-		nav_agent.target_position = get_global_mouse_position()
-		
+func makepath(target: Vector2):
+		nav_agent.target_position = target
+
+
+
+
 

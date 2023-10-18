@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Adventurer" load_steps=2 format=3 uid="uid://ddieiaha1waae"]
+
+[ext_resource type="Script" path="res://Entities/Adventurers/Adventurer.gd" id="1_71cl6"]
+
+[resource]
+script = ExtResource("1_71cl6")
+MaxMana = 10
+CurrentMana = 10
+Level = 1
+Experience = 0.0
+ExpThreshold = null
+Class = 1
+Name = "Mage1"
+MaxHealth = 7
+Health = 7
+Happiness = 100
+Gold = 0
+BaseDefence = 0

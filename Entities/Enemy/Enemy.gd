@@ -1,12 +1,15 @@
-class_name Enemy extends Node
+extends Resource
 
+class_name Enemy
 
+@export var Name: String
+@export var Damage: int
+@export var Defence: int
+@export var MaxHealth: int
+@export var Health: int
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func TakeDamage(Dam):
+	Health -= Dam
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+func GiveDamage(Adventurer):
+	Adventurer.TakeDamage(Damage)

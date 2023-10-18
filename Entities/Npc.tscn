@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://c8ftg17b41lsm"]
+
+[ext_resource type="Script" path="res://Entities/Npc.gd" id="1_02sih"]
+[ext_resource type="Texture2D" uid="uid://ge2ur1l373r3" path="res://Entities/npc thing.png" id="2_8ixk7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eiyrj"]
+atlas = ExtResource("2_8ixk7")
+region = Rect2(129, 0, 27, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kncym"]
+atlas = ExtResource("2_8ixk7")
+region = Rect2(129, 48, 28, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gx3gh"]
+atlas = ExtResource("2_8ixk7")
+region = Rect2(1, 48, 29, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rkh8"]
+atlas = ExtResource("2_8ixk7")
+region = Rect2(30, 48, 29, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e60nq"]
+atlas = ExtResource("2_8ixk7")
+region = Rect2(59, 48, 29, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0isv"]
+atlas = ExtResource("2_8ixk7")
+region = Rect2(88, 48, 29, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gh73p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eiyrj")
+}],
+"loop": true,
+"name": &"Idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kncym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gx3gh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rkh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e60nq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0isv")
+}],
+"loop": true,
+"name": &"Walk_Right",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qxh0w"]
+
+[node name="NPC" type="CharacterBody2D"]
+script = ExtResource("1_02sih")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gh73p")
+animation = &"Walk_Right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qxh0w")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

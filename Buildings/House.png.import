@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://78sunbtrvqdc"
-path="res://.godot/imported/desert_house_exterior_01.png-13417b91baaedb26b7d30cdda917a0a7.ctex"
+uid="uid://bo3g2a3prnyo0"
+path="res://.godot/imported/House.png-419af8d8c91ac53543a67069b4ac697c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Buildings/desert_house_exterior_01.png"
-dest_files=["res://.godot/imported/desert_house_exterior_01.png-13417b91baaedb26b7d30cdda917a0a7.ctex"]
+source_file="res://Buildings/House.png"
+dest_files=["res://.godot/imported/House.png-419af8d8c91ac53543a67069b4ac697c.ctex"]
 
 [params]
 

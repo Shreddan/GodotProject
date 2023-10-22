@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://y30icnxx5tb8"]
+
+[ext_resource type="Script" path="res://Entities/Status.gd" id="1_hxy87"]
+
+[node name="Status" type="Node"]
+script = ExtResource("1_hxy87")

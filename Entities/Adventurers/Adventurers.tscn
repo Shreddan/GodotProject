@@ -1,13 +1,13 @@
-[gd_scene load_steps=25 format=3 uid="uid://bg3ivdmdrhsul"]
+[gd_scene load_steps=24 format=3 uid="uid://bg3ivdmdrhsul"]
 
 [ext_resource type="Script" path="res://Entities/Adventurers/Adventurers.gd" id="1_vrs3y"]
 [ext_resource type="Resource" uid="uid://jyamfrdblx7c" path="res://Items/CharacterInventory.tres" id="2_doku7"]
 [ext_resource type="Texture2D" uid="uid://c80wymma7j74s" path="res://Entities/Adventurers/KenatronIdleRight.png" id="2_jn8sn"]
-[ext_resource type="Resource" uid="uid://bgiq48mt3o4bd" path="res://Entities/Adventurers/Warrior.tres" id="3_21vey"]
 [ext_resource type="Texture2D" uid="uid://d0ewdonegw0lx" path="res://Entities/Adventurers/Kenatron.png" id="3_ykv2k"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vet6i"]
-size = Vector2(14.5, 14)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nuqqm"]
+radius = 13.25
+height = 56.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hc51a"]
 load_path = "res://.godot/imported/Kenatron.png-9204d0946bc0e22ff33eca9da896523c.ctex"
@@ -32,13 +32,13 @@ region = Rect2(0, 0, 29, 44)
 atlas = SubResource("CompressedTexture2D_hc51a")
 region = Rect2(29, 0, 29, 44)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yxalk"]
-atlas = SubResource("CompressedTexture2D_hc51a")
-region = Rect2(58, 0, 29, 44)
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5wyk"]
+atlas = ExtResource("3_ykv2k")
+region = Rect2(66, 0, 33, 44)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_61sks"]
-atlas = SubResource("CompressedTexture2D_hc51a")
-region = Rect2(87, 0, 29, 44)
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnxis"]
+atlas = ExtResource("3_ykv2k")
+region = Rect2(99, 0, 33, 44)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pp8cs"]
 load_path = "res://.godot/imported/Kenatron.png-9204d0946bc0e22ff33eca9da896523c.ctex"
@@ -109,10 +109,10 @@ animations = [{
 "texture": SubResource("AtlasTexture_jkpxf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yxalk")
+"texture": SubResource("AtlasTexture_w5wyk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_61sks")
+"texture": SubResource("AtlasTexture_vnxis")
 }],
 "loop": true,
 "name": &"WalkDown",
@@ -150,29 +150,29 @@ animations = [{
 }],
 "loop": true,
 "name": &"WalkUp",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [node name="Adventurer" type="CharacterBody2D" groups=["Adventurers"]]
 motion_mode = 1
 wall_min_slide_angle = 0.0
+safe_margin = 0.05
 script = ExtResource("1_vrs3y")
+speed = 250
 inventory = ExtResource("2_doku7")
-Adventure = ExtResource("3_21vey")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.75, 20)
-shape = SubResource("RectangleShape2D_vet6i")
+position = Vector2(-0.25, 1)
+shape = SubResource("CapsuleShape2D_nuqqm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.3, 1.3)
 sprite_frames = SubResource("SpriteFrames_xfwfp")
-animation = &"IdleDown"
+animation = &"WalkDown"
 autoplay = "IdleDown"
 metadata/_edit_lock_ = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 10.0
-target_desired_distance = 25.0
+debug_enabled = true
 
 [connection signal="ready" from="." to="." method="_on_ready"]

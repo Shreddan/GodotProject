@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://drvb0e2wmr67f"]
 
-[ext_resource type="Script" path="res://Source/MainMenu.gd" id="1_pj5c5"]
+[ext_resource type="Script" path="res://Source/TitleScreen.gd" id="1_pj5c5"]
 
-[node name="Main" type="Node2D"]
+[node name="TitleScreen" type="Node2D"]
 script = ExtResource("1_pj5c5")
 
 [node name="NewGame" type="Button" parent="."]

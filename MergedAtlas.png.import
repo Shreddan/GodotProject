@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcnwvow60xl1i"
-path="res://.godot/imported/Castlmap.png-ef986e1fb0865f09af41fafbb59e65e8.ctex"
+uid="uid://cr05pmo3lqk7h"
+path="res://.godot/imported/MergedAtlas.png-ee6516bf3e4a8dcbac1980fefa73c22a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Castlmap.png"
-dest_files=["res://.godot/imported/Castlmap.png-ef986e1fb0865f09af41fafbb59e65e8.ctex"]
+source_file="res://MergedAtlas.png"
+dest_files=["res://.godot/imported/MergedAtlas.png-ee6516bf3e4a8dcbac1980fefa73c22a.ctex"]
 
 [params]
 

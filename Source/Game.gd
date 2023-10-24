@@ -38,7 +38,7 @@ func _input(event):
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	elif event.is_action_pressed("Escape"):
-		get_tree().change_scene_to_file("res://Source/MainMenu.tscn")
+		get_tree().change_scene_to_file("res://Source/TitleScreen.tscn")
 
 func _on_button_pressed():
 	get_tree().change_scene_to_file("res://DungeonMap/Map.tscn")

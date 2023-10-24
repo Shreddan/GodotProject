@@ -163,8 +163,6 @@ script = ExtResource("1_vrs3y")
 Name = "Shmooble"
 speed = 250
 inventory = ExtResource("2_doku7")
-BaseDefence = null
-BaseAtk = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.25, 1)

@@ -1,5 +1,8 @@
 class_name Battle extends Node
 
+@export var eParty : EnemyParty
+@export var aParty : AdventurerParty
+
 var action_queue : Array
 
 var index : int = 0

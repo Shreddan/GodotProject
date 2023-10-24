@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_1cxko")
 WeaponType = 1
-Damage = 0
+Damage = 2
 TwoHand = false
 name = "ShortSword"
 Value = 5

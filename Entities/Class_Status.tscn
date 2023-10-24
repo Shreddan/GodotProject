@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://boji04w8iadu3"]
 
 [ext_resource type="Script" path="res://Entities/ClassStatus.gd" id="1_bjsit"]
-[ext_resource type="Script" path="res://Stats.gd" id="2_3qqr1"]
+[ext_resource type="Script" path="res://Entities/Stats.gd" id="2_7b4qb"]
 
 [node name="ClassStatus" type="Node"]
 script = ExtResource("1_bjsit")
 
 [node name="Stats" type="Node" parent="."]
-script = ExtResource("2_3qqr1")
+script = ExtResource("2_7b4qb")

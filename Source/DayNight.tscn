@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Source/DayNight.gd" id="1_m8ftv"]
 
 [node name="DayNight" type="Timer"]
-wait_time = 20.0
+wait_time = 2.0
 script = ExtResource("1_m8ftv")
 
 [connection signal="timeout" from="." to="." method="_on_timeout"]

@@ -1,0 +1,86 @@
+[gd_scene load_steps=8 format=3 uid="uid://ckhoevm4svsgt"]
+
+[ext_resource type="Script" path="res://Source/DayChange.gd" id="1_0wrtk"]
+[ext_resource type="Script" path="res://day_change.gd" id="1_jkvwm"]
+[ext_resource type="Script" path="res://Daynum.gd" id="3_dgcc5"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_nywtn"]
+
+[sub_resource type="Animation" id="Animation_jrsq6"]
+resource_name = "DayTransition"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1, 1.6, 2.2, 3, 3.6, 4.2, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.235294), Color(0, 0, 0, 0.470588), Color(0, 0, 0, 0.705882), Color(0, 0, 0, 0.941176), Color(0, 0, 0, 1), Color(0, 0, 0, 0.588235), Color(0, 0, 0, 0.235294), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Daynum:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.8, 2.4, 3.6, 4.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.313726), Color(1, 1, 1, 1), Color(1, 1, 1, 0.54902), Color(1, 1, 1, 0.196078), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fix4y"]
+_data = {
+"DayTransition": SubResource("Animation_jrsq6")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_ne1mn"]
+font_size = 30
+
+[node name="DayChange" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_jkvwm")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 0)
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("CanvasTexture_nywtn")
+script = ExtResource("1_0wrtk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fix4y")
+}
+
+[node name="Daynum" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Testing"
+label_settings = SubResource("LabelSettings_ne1mn")
+script = ExtResource("3_dgcc5")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

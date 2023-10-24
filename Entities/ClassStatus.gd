@@ -1,4 +1,4 @@
-class_name ClassStatus extends Node2D
+class_name ClassStatus extends Node
 
 
 enum Classes {WARRIOR, MAGE, CLERIC, ROGUE, RANGER}

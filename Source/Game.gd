@@ -4,6 +4,8 @@ const MAX_CHARACTER_LIMIT = 32
 
 
 var Build
+var DC
+
 var housecount
  
 var Treasury = 0
@@ -16,8 +18,11 @@ var ActiveQuests: Array[Quest]
 @onready var DayNightLabel := $CanvasLayer/Time as Label
 @onready var DayLab := $CanvasLayer/Day as Label
 
+signal DayEnded
+
 func _ready():
 	Build = preload("res://Buildings/House.tscn")
+	DC = preload("res://day_change.tscn")
 	DayNight.EndofDay.connect(Endday)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -62,7 +67,12 @@ func _on_building_button_pressed():
 		inst.position = Vector2(46, 765)
 
 func Endday():
+	var inst = DC.instantiate()
 	DayNight.time = 7
 	DayNight.Day += 1
-	DayNight.set_paused(false)
+	add_child(inst)
+	inst.position = $Camera.position
+	inst.DayTransition()
+	get_tree().create_timer(3)
+	DayEnded.emit()
 

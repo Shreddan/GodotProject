@@ -9,8 +9,6 @@ var random
 @export var ExpThreshold: float 
 @export var Class: int 
 
-@export var BaseDefence: int
-
 signal Levelledup
 
 # Called when the node enters the scene tree for the first time.

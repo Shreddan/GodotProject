@@ -1,7 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://cucop4u4b4acv"]
+[gd_scene load_steps=4 format=3 uid="uid://cucop4u4b4acv"]
 
 [ext_resource type="Script" path="res://Buildings/House.gd" id="1_ci1bu"]
+[ext_resource type="Texture2D" uid="uid://cxiklitt232dm" path="res://House.png" id="2_mjxvl"]
+[ext_resource type="Script" path="res://Buildings/Spawn.gd" id="3_svw6p"]
 
 [node name="House" type="Node2D"]
-position = Vector2(136, 120)
 script = ExtResource("1_ci1bu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_mjxvl")
+metadata/_edit_lock_ = true
+
+[node name="Spawn" type="Marker2D" parent="."]
+script = ExtResource("3_svw6p")

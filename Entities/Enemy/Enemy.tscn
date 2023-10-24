@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6rn7n3xv4yh1"]
+[gd_scene load_steps=4 format=3 uid="uid://c6rn7n3xv4yh1"]
 
 [ext_resource type="Script" path="res://Entities/Enemy/Enemy.gd" id="1_lcl06"]
+[ext_resource type="Script" path="res://Entities/Status.gd" id="2_a8ko6"]
+[ext_resource type="Script" path="res://Entities/ClassStatus.gd" id="3_n5dx7"]
 
 [node name="Enemy" type="Node"]
 script = ExtResource("1_lcl06")
+
+[node name="Status" type="Node" parent="."]
+script = ExtResource("2_a8ko6")
+
+[node name="ClassStatus" type="Node2D" parent="."]
+script = ExtResource("3_n5dx7")

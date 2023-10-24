@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://drvb0e2wmr67f"]
+
+[ext_resource type="Script" path="res://Source/MainMenu.gd" id="1_pj5c5"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_pj5c5")
+
+[node name="NewGame" type="Button" parent="."]
+offset_left = 792.0
+offset_top = 352.0
+offset_right = 1022.0
+offset_bottom = 452.0
+tooltip_text = "New Game Button"
+text = "New Game"
+
+[node name="Continue" type="Button" parent="."]
+offset_left = 792.0
+offset_top = 456.0
+offset_right = 1022.0
+offset_bottom = 556.0
+text = "Continue"
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 792.0
+offset_top = 560.0
+offset_right = 1022.0
+offset_bottom = 666.0
+tooltip_text = "New Game Button"
+text = "Quit"
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="pressed" from="NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="ready" from="NewGame" to="." method="_on_new_game_ready"]
+[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

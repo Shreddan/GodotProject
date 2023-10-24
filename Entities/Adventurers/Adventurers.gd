@@ -6,10 +6,12 @@ class_name Adventurer extends CharacterBody2D
 @export var inventory: Inventory
 @export var house: House 
 
+@export var BaseDefence: int
+@export var BaseAtk: int
+
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
 @onready var anim := $AnimatedSprite2D as AnimatedSprite2D
 
-#var random
 
 func _on_ready():
 	if get_parent() is House:
@@ -17,6 +19,10 @@ func _on_ready():
 		position = to_local(house.position).normalized()
 		print_debug(house.get_child(1).position)
 		makepath(house.get_child(1).position)
+		
+	if $ClassStatus.Class == $ClassStatus.Classes.WARRIOR:
+		BaseDefence = 2
+		BaseAtk = 2
 	
 
 func _process(_delta):
@@ -55,7 +61,16 @@ func _physics_process(_delta: float):
 func makepath(target: Vector2):
 		nav_agent.target_position = target
 
-
+func takeDamage(damage):
+	$Status.Health -= damage
+	
+func giveDamage() -> int:
+	var TotalDamage
+	Dice.rollDice()
+	var roll = Dice.Rolls[0]
+	TotalDamage = BaseAtk + inventory.Equipped[0].Damage + roll
+	print_debug(TotalDamage)
+	return TotalDamage
 
 
 

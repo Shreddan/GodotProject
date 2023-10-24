@@ -1,9 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://bg3ivdmdrhsul"]
+[gd_scene load_steps=26 format=3 uid="uid://bg3ivdmdrhsul"]
 
 [ext_resource type="Script" path="res://Entities/Adventurers/Adventurers.gd" id="1_vrs3y"]
 [ext_resource type="Resource" uid="uid://jyamfrdblx7c" path="res://Items/CharacterInventory.tres" id="2_doku7"]
 [ext_resource type="Texture2D" uid="uid://c80wymma7j74s" path="res://Entities/Adventurers/KenatronIdleRight.png" id="2_jn8sn"]
 [ext_resource type="Texture2D" uid="uid://d0ewdonegw0lx" path="res://Entities/Adventurers/Kenatron.png" id="3_ykv2k"]
+[ext_resource type="PackedScene" uid="uid://y30icnxx5tb8" path="res://Entities/Status.tscn" id="5_j7vai"]
+[ext_resource type="PackedScene" uid="uid://boji04w8iadu3" path="res://Entities/Class_Status.tscn" id="6_frkkr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nuqqm"]
 radius = 13.25
@@ -158,8 +160,11 @@ motion_mode = 1
 wall_min_slide_angle = 0.0
 safe_margin = 0.05
 script = ExtResource("1_vrs3y")
+Name = "Shmooble"
 speed = 250
 inventory = ExtResource("2_doku7")
+BaseDefence = null
+BaseAtk = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.25, 1)
@@ -175,4 +180,10 @@ metadata/_edit_lock_ = true
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 debug_enabled = true
 
+[node name="Status" parent="." instance=ExtResource("5_j7vai")]
+
+[node name="ClassStatus" parent="." instance=ExtResource("6_frkkr")]
+
 [connection signal="ready" from="." to="." method="_on_ready"]
+
+[editable path="Status"]

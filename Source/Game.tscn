@@ -431,6 +431,9 @@ sources/0 = SubResource("TileSetAtlasSource_ytq3j")
 [node name="Game" type="Node2D"]
 script = ExtResource("1_jyyqt")
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.0196078, 0.0196078, 0.0196078, 1)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Treasury" type="Label" parent="CanvasLayer"]

@@ -3,7 +3,7 @@ class_name DayChange extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -15,4 +15,4 @@ func DayTransition():
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "DayTransition":
-		queue_free()
+		visible = false

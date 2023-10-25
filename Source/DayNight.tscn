@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://gupo6yg4dpiy"]
+[gd_scene load_steps=3 format=3 uid="uid://gupo6yg4dpiy"]
 
 [ext_resource type="Script" path="res://Source/DayNight.gd" id="1_m8ftv"]
+[ext_resource type="PackedScene" uid="uid://ckhoevm4svsgt" path="res://Source/day_change.tscn" id="2_mvqf3"]
 
 [node name="DayNight" type="Timer"]
 wait_time = 2.0
 script = ExtResource("1_m8ftv")
+
+[node name="DayChange" parent="." instance=ExtResource("2_mvqf3")]
 
 [connection signal="EndofDay" from="." to="." method="_on_endof_day"]
 [connection signal="timeout" from="." to="." method="_on_timeout"]

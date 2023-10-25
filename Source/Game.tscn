@@ -432,6 +432,11 @@ sources/0 = SubResource("TileSetAtlasSource_ytq3j")
 script = ExtResource("1_jyyqt")
 
 [node name="Camera" type="Camera2D" parent="."]
+limit_left = -500000
+limit_top = -500000
+limit_right = 500000
+limit_bottom = 500000
+limit_smoothed = true
 script = ExtResource("2_i21mh")
 zoom_sensititvity = 2.0
 screen_edge_panning = false

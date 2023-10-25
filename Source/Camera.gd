@@ -5,7 +5,7 @@ extends Camera2D
 ## The speed at which the camera zooms in and out.
 @export_range(0.0, 10.0, 0.25, "or_greater") var zoom_sensititvity:float = 0.5
 ## The smallest the camera window can get.
-@export var min_zoom: Vector2 = Vector2(0.3,0.3)
+@export var min_zoom: Vector2 = Vector2(0.2,0.2)
 ## The largest the camera window can get.
 @export var max_zoom: Vector2 = Vector2(5,5)
 ## The speed at which the screen pans with the keyboard.
@@ -30,7 +30,7 @@ extends Camera2D
 
 func _ready():
 	anchor_mode = Camera2D.ANCHOR_MODE_DRAG_CENTER
-	#position = Vector2(300.0, 400.0)
+	DayNight.Cam = self
 
 func _physics_process(_delta):
 	# Key board controls.

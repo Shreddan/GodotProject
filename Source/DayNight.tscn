@@ -6,4 +6,5 @@
 wait_time = 2.0
 script = ExtResource("1_m8ftv")
 
+[connection signal="EndofDay" from="." to="." method="_on_endof_day"]
 [connection signal="timeout" from="." to="." method="_on_timeout"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Source/DayChange.gd" id="1_0wrtk"]
 [ext_resource type="Script" path="res://day_change.gd" id="1_jkvwm"]
-[ext_resource type="Script" path="res://Daynum.gd" id="3_dgcc5"]
+[ext_resource type="Script" path="res://Source/Daynum.gd" id="3_amtrd"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_nywtn"]
 
@@ -81,6 +81,6 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Testing"
 label_settings = SubResource("LabelSettings_ne1mn")
-script = ExtResource("3_dgcc5")
+script = ExtResource("3_amtrd")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

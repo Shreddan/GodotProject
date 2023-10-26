@@ -11,12 +11,13 @@ func _ready():
 	
 	
 func _process(_delta):
-	if time > 20:
+	if time > 20 && not is_paused():
 		set_paused(true)
 		EndofDay.emit()
 		
 	if Cam:
 		$DayChange.position = Cam.get_screen_center_position()
+		
 
 
 func _on_timeout():
@@ -26,7 +27,12 @@ func _on_timeout():
 func _on_endof_day():
 	Day += 1
 	$DayChange.visible = true
+	print_debug($DayChange.size)
 	$DayChange.DayTransition()
-	time = 7
-	get_tree().create_timer(5)
-	set_paused(false)
+	
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "DayTransition":
+		time = 7
+		set_paused(false)

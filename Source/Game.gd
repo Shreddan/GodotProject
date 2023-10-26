@@ -48,7 +48,6 @@ func _on_quit_button_pressed():
 	get_tree().quit()
 
 
-
 func _on_building_button_pressed():
 	housecount = house.size()
 	var inst = Build.instantiate()
